@@ -1,0 +1,86 @@
+group:
+    edit:
+        submit: 'Update group'
+    show:
+        name: 'Group name'
+    new:
+        submit: 'Create group'
+    flash:
+        updated: 'The group has been updated.'
+        created: 'The group has been created.'
+        deleted: 'The group has been deleted.'
+security:
+    login:
+        username: Nome de usuário
+        password: Senha
+        remember_me: 'Lembre de mim'
+        submit: 'Entrar na Conta'
+profile:
+    show:
+        username: Nome de usuário
+        email: Email
+    edit:
+        submit: Atualizar
+    flash:
+        updated: 'O perfil foi atualizado.'
+change_password:
+    submit: 'Mudar senha'
+    flash:
+        success: 'A senha foi alterada.'
+registration:
+    check_email: |
+        Um e-mail foi enviado para %email%. Ele contém um link de ativação que você deve clicar para ativar sua conta.
+    confirmed: '%username%, sua conta foi criada com sucesso!'
+    back: 'Voltar para a página de origem.'
+    submit: Criar Conta
+    flash:
+        user_created: 'O usuário foi criado com sucesso.'
+    email:
+        subject: 'Bem-vindo %username%!'
+        message: |
+            Olá %username%!
+
+            Para concluir a ativação de sua conta - visite %confirmationUrl%
+
+            Este link só pode ser usado uma vez para validar sua conta.
+
+            Cumprimentos,
+            O time.
+resetting:
+    check_email: |
+        Um e-mail foi enviado. Ele contém um link no qual você deve clicar para redefinir sua senha.
+        Observação: você só pode solicitar uma nova senha uma vez dentro de %tokenLifetime% horas.
+
+        Se você não receber um e-mail, verifique sua pasta de spam ou tente novamente.
+    request:
+        username: 'Nome de Usuário ou Endereço de Email'
+        submit: 'Redefinir senha'
+    reset:
+        submit: 'Mudar senha'
+    flash:
+        success: 'A senha foi redefinida com sucesso.'
+    email:
+        subject: 'Redefinir senha'
+        message: |
+            Olá %username%!
+
+            Para redefinir sua senha - visite %confirmationUrl%
+
+            Cumprimentos,
+            O time.
+
+# Global strings
+layout:
+    logout: 'Sair'
+    login: 'Entrar na Conta'
+    register: Criar Conta
+    logged_in_as: 'Logado como %username%'
+form:
+    group_name: 'Group name'
+    username: Nome de usuário
+    email: E-mail
+    current_password: 'Senha atual'
+    password: Senha
+    password_confirmation: 'Repita a senha'
+    new_password: 'Nova Senha'
+    new_password_confirmation: 'Repita a nova senha'

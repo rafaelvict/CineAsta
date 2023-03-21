@@ -1,0 +1,61 @@
+{% extends "WebBundle::login.html.twig" %}
+{% set subtitle =   "Assinaturas"  %}
+{% set og_description =  "Assinaturas" %}
+{% set og_type =  "null" %}
+{% set og_image =  "null" %}
+{% set keywords =  "null" %}
+{% block body %}
+
+<div class="tab-title">Inscreva-se agora!</div>
+
+<div id="subscribe-plan">
+	<div class="subscribe-title" id="selected_pack">
+		<span>1</span>
+
+		<h5>{{subscription.pack}}</h5>
+		<span class="fas fa-check float-right"></span>
+		<span class="float-right price-step-1">{{subscription.price}} {{subscription.currency}}</span>
+	</div>
+	<div class="subscribe-title" id="selected_pack">
+		<span>2</span>
+
+		<h5>Forma de pagamento </h5>
+		<span class="fas fa-check float-right"></span>
+		<span class="float-right price-step-1"><i class='fas fa-money-check-alt'></i>Pagamento por PIX </span>
+	</div>
+	<div class="subscribe-title">
+		<span>3</span>
+		<h5>Carregue suas informações de pagamento</h5>
+		<span class="float-right"><i class="fas fa-money-check-alt"></i></span>
+	</div>
+		<p>
+        <div class="form-group">
+        	<label>Detalhes da nossa conta de pagamento :</label>
+        	<p class="banque-account">
+                {{account|nl2br}}
+        	</p>
+        </div>
+		</p>
+		{{form_start(form)}}
+        <div class="form-group">
+        	<label>Coloque seu E-mail</label>
+            {{form_widget(form.transaction,{"attr":{"class":"form-control"}})}}
+            <span class="validate-input">{{form_errors(form.transaction)}}</span>
+        </div>
+        <div class="form-group">
+        	<label>Confirme seu E-mail</label>
+            {{form_widget(form.infos,{"attr":{"class":"form-control"}})}}
+            <span class="validate-input">{{form_errors(form.infos)}}</span>
+        </div>
+        {{form_widget(form.file,{attr:{"class":"float-right btn btn-primary"}})}}</span>
+        <div class="file-input">
+        	<div class="message-after">	<i class="fas fa-check "></i> O arquivo foi selecionado</div>
+        	<div class="message-before">	<i class="fas fa-money-check-alt"></i> Clique para fazer upload do arquivo aqui</div>
+       	</div>
+        <span class="validate-input">{{form_errors(form.file)}}</span>
+        <button class="float-right btn btn-primary"><i class="fas fa-check"></i> Envie seu pagamento</button>
+        {{form_end(form)}}
+
+</div>
+
+{% endblock %}

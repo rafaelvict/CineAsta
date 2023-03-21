@@ -1,0 +1,43 @@
+{% extends "WebBundle::layout.html.twig" %}
+{% set subtitle =   "Editar Perfil"  %}
+{% set og_description =  "Editar Perfil" %}
+{% set og_type =  "null" %}
+{% set og_image =  "null" %}
+{% set keywords =  "null" %}
+{% block title %}Editar Perfil{% endblock %}
+{% block body %}
+	<div class="row content-section">
+		<div class="col-md-12" >
+			<div class="actor-header-bg" style=" background-image: url('{{(app.user.media.type == "link" )? app.user.media.url : asset(app.user.media.link)}}');">
+				<div class="movie-header actor-header">
+					<div class="movie-title">{{app.user.name}}</div>
+				</div>
+			</div>
+			<img class="actor-logo" src="{{(app.user.media.type == "link" )? app.user.media.url : asset(app.user.media.link)|imagine_filter("user_image")}}">
+		</div>
+		<div class="col-md-3" >
+			<a href="{{path("fos_user_profile_show")}}" class="btn btn-block btn-sm play-btn"><i class="fas fa-user"></i> Meu Perfil</a>
+			<a href="{{path("fos_user_myprofile_edit")}}" class="btn btn-block btn-sm play-btn"><i class="fas fa-user-edit"></i> Editar Perfil</a>
+			<a href="{{path("user_user_subscriptions")}}" class="btn btn-block btn-sm play-btn"><i class="fas fa-star"></i> Minhas assinaturas</a>
+			{% if app.user.type == "email" %}
+				<a href="{{path("fos_user_change_password")}}" class="btn btn-block btn-sm play-btn"><i class="fas fa-user-lock"></i> Mudar senha</a>
+			{% endif %}
+			<a href="{{path("fos_user_security_logout")}}" class="btn btn-block btn-sm play-btn"><i class="fas fa-sign-out-alt"></i> Sair</a>
+		</div>
+		<div class="col-md-9">
+			<h3>Meu Perfil</h3>
+			{{ form_start(form)}}
+			{{form_widget(form.file,{attr:{"class":"float-right btn btn-primary"}})}}
+			<div class="file-input">
+				<div class="message-after">	<i class="fas fa-check "></i> O arquivo foi selecionado</div>
+				<div class="message-before">	<i class="fas fa-money-check-alt"></i> Selecione sua foto de perfil</div>
+			</div>
+			<div class="form-group">
+				{{form_widget(form.name,{"attr":{"class":"form-control","placeholder":"Nome completo"}})}}
+				<span class="validate-input">{{form_errors(form.name)}}</span>
+			</div>
+			{{form_widget(form.save,{"attr":{"class":"btn btn-raised btn-primary float-right"}})}}
+			{{ form_end(form) }}
+		</div>
+	</div>
+{% endblock %}
